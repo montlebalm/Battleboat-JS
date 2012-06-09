@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Battleship AI Test Page</title>
+</head>
+<body>
+	<script type="text/javascript" src="assets/Util_class.js"></script>
+	<script type="text/javascript" src="assets/Globals.js"></script>
+	<script type="text/javascript" src="assets/Game_class.js"></script>
+	<script type="text/javascript" src="assets/Board_class.js"></script>
+
+	<script type="text/javascript" src="example_ai.js"></script>
+
+	<script type="text/javascript">
+
+		// Make the players
+		var p1 = new Player();
+
+		// Show the players initial placements
+		var p1_placements = p1.placeShips(ships.slice());
+		console.log(p1.name, "placed ships at", p1_placements);
+
+		// Make the opponent's board
+		var p2_board = new Board();
+
+		// Get the players first turn
+		var turn = p1.takeTurn(p2_board);
+		console.log(p1.name, "fired on (", turn.x, ",", turn.y, ")");
+
+	</script>
+</body>
+</html>
