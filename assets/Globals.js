@@ -1,17 +1,17 @@
 // Define the possible spaces
-var EMPTY = 0,
-	SHIP = 1,
-	HIT = 2,
-	MISS = 3;
+var MISS = "MISS",
+	HIT = "HIT",
+	SUNK = "SUNK",
+	DUPE = "DUPLICATE";
 
 // Define the dimensions
 var WIDTH = 10,
 	HEIGHT = 10;
 
-// Instantiate the util class
-var util = new Util();
+var DEBUG = (window.location.href.indexOf("debug=on") != -1);
 
-var ships = [
-	util.makeShip("Battleship", 5),
-	util.makeShip("Tug Boat", 2)
-];
+function debug() {
+	if (DEBUG) {
+		console.log(Array.prototype.slice.call(arguments).join(" "));
+	}
+}
