@@ -5,7 +5,11 @@ An automated game of digital warfare on the waves of ingenuity.
 
 # API
 
-## Submitting a turn
+## Initial Ship Placement
+
+
+
+## Submitting a Turn
 
 Turns are submitted through the required <code>takeTurn</code> method. This method must return an object containing <code>x</code> and <code>y</code> properties. Any additional properties will be ignored. Neglecting to include either property will result in forfeiture of the turn.
 
@@ -24,7 +28,7 @@ This method contains a single <code>turns</code> parameter which contains a list
 
 Note the <code>damage</code> property in the turn object. This tells you the result of your digital bombardment. Detailed descriptions of possible turn results are listed below in the "Turn results" section.
 
-## Turn results
+## Turn Results
 
 Turns can result in four different outcomes: MISS, HIT, SUNK, and DUPE.
 
@@ -40,3 +44,27 @@ The HEIGHT and WIDTH globals refer to the number of rows and columns. A HEIGHT o
 A (x, y) coordinate of (5, 7)* would hit column index 5, row index 7.
 
 *Note that coordinates are 0 based, so the column at index 5 is the 6th column from the left.
+
+# Ships
+
+Each player must defend place and ultimately destroy 5 ships. The types of ships are: Aircraft Carrier, Battleship, Submarine, Destroyer, and Patrol Boat. Each ship occupies a specific number of places on the board. Each space must be HIT in order for the ship to be SUNK.
+
+Here is the detailed details for each vessel from largest to smallest:
+
+- Aircraft Carrier
+	- Abbreviation: "A"
+	- Size: 5
+- Battleship
+	- Abbreviation: "B"
+	- Size: 4
+- Destroyer
+	- Abbreviation: "D"
+	- Size: 3
+- Submarine
+	- Abbreviation: "S"
+	- Size: 3
+- Patrol Boat
+	- Abbreviation: "P"
+	- Size: 2
+
+Abbreviations will be used in the visual representation of ships on the game board.
