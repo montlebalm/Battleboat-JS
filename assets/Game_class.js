@@ -104,19 +104,19 @@
 		return result;
 	};
 
-	Game.prototype.displayBoard = function(turns) {
-		var string = "";
+	Game.prototype.displayBoard = function(player) {
+		var string = (WIDTH <= 10 && HEIGHT <= 10) ? "  0 1 2 3 4 5 6 7 8 9\n" : "";
 		var turnsObj = {};
 
-		for (var i = 0; i < turns.length; i++) {
-			if (turns[i].damage != DUPE) {
-				turnsObj[turns[i].x + "," + turns[i].y] = turns[i];
+		for (var i = 0; i < player.turns.length; i++) {
+			if (player.turns[i].damage != DUPE) {
+				turnsObj[player.turns[i].x + "," + player.turns[i].y] = player.turns[i];
 			}
 		}
 
 		for (var i = 0; i < HEIGHT; i++) {
 			var y = i;
-			var row = "";
+			var row = (WIDTH <= 10 && HEIGHT <= 10) ? i + " " : "";
 
 			for (var j = 0; j < WIDTH; j++) {
 				var x = j;
@@ -139,7 +139,7 @@
 			string += row + "\n";
 		}
 
-		debug(string);
+		return string;
 	};
 
 	Game.prototype.getShips = function() {
@@ -215,11 +215,9 @@
 	gm.init();
 	gm.start();
 	// Display the results
-	console.log("-----Results-----");
-	console.log("Player 1's turns");
-	gm.displayBoard(gm.players[0].turns);
-	console.log("Player 2's turns");
-	gm.displayBoard(gm.players[1].turns);
+	debug("-----Results-----");
+	debug("Player 1's turns\n" + gm.displayBoard(gm.players[0]));
+	debug("Player 2's turns\n" + gm.displayBoard(gm.players[1]));
 
 	// Function to conditionally log messages
 	function debug() {
@@ -227,4 +225,4 @@
 			console.log(Array.prototype.slice.call(arguments).join(" "));
 		}
 	}
-}(10, 10, "MISS", "HIT", "SUNK", "DUPLICATE"));
+}(HEIGHT, WIDTH, MISS, HIT, SUNK, DUPE));
