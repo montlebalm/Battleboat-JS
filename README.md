@@ -13,13 +13,13 @@ Players must place all 5 ships at the beginning of the game. This placement is f
 
 Here is an example of a single index from the <code>ships</code> parameter:
 
-<code>
-ships[0] == {
+```javascript
+{
 	name: "Aircraft Carrier",
 	size: 5,
 	abbrev: "A"
-};
-</code>
+}
+```
 
 - Name: the full name of the ship.
 - Size: the number of board tiles the ship must occuppy. This is also the number of HITs the ship must endure before being SUNK.
@@ -83,16 +83,24 @@ Turns are submitted through the required <code>takeTurn</code> method. This meth
 
 Here is an example of a function that always shoots at position (2, 8):
 
-<code>Player.prototype.takeTurn = function(turns) {
-  return {
-    x: 2,
-    y: 8
-  };
-}</code>
+```javascript
+Player.prototype.takeTurn = function(turns) {
+	return {
+  		x: 2,
+    	y: 8
+	};
+}
+```
 
 This method contains a single <code>turns</code> parameter which contains a list of all the player's previous turns. Here is an example of a turn in which our player fired at (2,8) and missed.
 
-<code>turns[0] == { x: 2, y: 8, damage: MISS };</code>
+```javascript
+{ 
+	x: 2, 
+	y: 8, 
+	damage: MISS
+}
+```
 
 Note the <code>damage</code> property in the turn object. This tells you the result of your digital bombardment. Detailed descriptions of possible turn results are listed below in the "Turn results" section.
 
