@@ -104,7 +104,11 @@ This method contains a single <code>turns</code> parameter which contains a list
 
 Note the <code>damage</code> property in the turn object. This tells you the result of your digital bombardment. Detailed descriptions of possible turn results are listed below in the "Turn results" section.
 
-## Turn Results
+# Reference
+
+## Globals
+
+### Turn Results
 
 Turns can result in four different outcomes: MISS, HIT, SUNK, and DUPE.
 
@@ -113,7 +117,7 @@ Turns can result in four different outcomes: MISS, HIT, SUNK, and DUPE.
 - SUNK occurs on the final HIT of an enemy ship.
 - DUPE is returned when you fire upon the same coordinate more than once. Multiple shots at the same coordinate will return DUPE regardless of whether your first shot was MISS, HIT, or SUNK.
 
-## Board Dimensions
+### Board Dimensions
 
 The HEIGHT and WIDTH globals refer to the number of rows and columns. A HEIGHT of 10 indicates that there are 10 rows. A WIDTH of 10 denotes 10 columns.
 
@@ -121,7 +125,7 @@ A (x, y) coordinate of (5, 7)* would hit column index 5, row index 7.
 
 *Note that coordinates are 0 based, so the column at index 5 is the 6th column from the left.
 
-# Ships
+## Ships
 
 Each player must defend place and ultimately destroy 5 ships. The types of ships are: Aircraft Carrier, Battleship, Submarine, Destroyer, and Patrol Boat. Each ship occupies a specific number of places on the board. Each space must be HIT in order for the ship to be SUNK.
 
