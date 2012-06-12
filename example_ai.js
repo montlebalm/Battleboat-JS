@@ -26,8 +26,6 @@ Player.prototype.placeShips = function(ships) {
 		}
 	}
 
-	console.log(placements);
-
 	return placements;
 };
 
