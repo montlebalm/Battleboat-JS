@@ -1,22 +1,22 @@
 (function(HEIGHT, WIDTH, MISS, HIT, SUNK, DUPE) {
-	function Game() {}
 
-	Game.prototype = {
-		players: [],
-		maxTurns: WIDTH * HEIGHT
-	};
+	function Game() {}
 
 	Game.prototype.init = function() {
 		var ships = this.getShips();
-		this.players = this.getPlayers(ships);
-	};
+		var players = this.getPlayers(ships);
+		var maxTurns = WIDTH * HEIGHT;
 
-	Game.prototype.start = function() {
-		this.loop(this.players, this.maxTurns, 0);
+		// Start the loop that will run until the game ends
+		this.loop(players, this.maxTurns, 0);
+
+		// Display the results
+		debug("-----Results-----");
+		debug("Player 1's turns\n" + gm.displayBoard(players[0]));
+		debug("Player 2's turns\n" + gm.displayBoard(players[1]));
 	};
 
 	Game.prototype.loop = function(players, maxTurns, turnNum) {
-		// DEBUG
 		debug("----- Turn", turnNum + 1, "-----");
 
 		for (var i = 0; i < players.length; i++) {
@@ -32,7 +32,6 @@
 				damage: damage
 			});
 
-			// DEBUG
 			debug(attacker.bot.name, "fired on", defender.bot.name, "at (", choice.x, ",", choice.y, ") and", damage);
 		}
 
@@ -213,11 +212,6 @@
 	// Initialize the game
 	var gm = new Game();
 	gm.init();
-	gm.start();
-	// Display the results
-	debug("-----Results-----");
-	debug("Player 1's turns\n" + gm.displayBoard(gm.players[0]));
-	debug("Player 2's turns\n" + gm.displayBoard(gm.players[1]));
 
 	// Function to conditionally log messages
 	function debug() {
@@ -225,4 +219,5 @@
 			console.log(Array.prototype.slice.call(arguments).join(" "));
 		}
 	}
+	
 }(HEIGHT, WIDTH, MISS, HIT, SUNK, DUPE));
