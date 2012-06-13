@@ -11,10 +11,12 @@ Player.prototype.placeShips = function(ships) {
 			size = ships[0].size,
 			axis = (this.rand(2) == 0) ? "x" : "y";
 
+		// Check that the ship both fits on the board and doesn't overlap another one
 		var fitsOnBoard = this.shipFits(x, y, axis, size);
 		var overlapsOtherShips = this.shipOverlaps(x, y, axis, size, placements);
 
 		if (fitsOnBoard && !overlapsOtherShips) {
+			// Remove the ship from the collection
 			var ship = ships.splice(0, 1);
 
 			placements.push({
