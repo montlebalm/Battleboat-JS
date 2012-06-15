@@ -1,34 +1,3 @@
-<%@ Language = JScript %>
-
-<%
-
-var HEIGHT = 10;
-var WIDTH = 10;
-
-function printTableBody(index, side) {
-	for (var i = 0; i < HEIGHT; i++) {
-		var row = "<tr>";
-
-		if (side == "left") {
-			row += "<th>" + i + "</th>";
-		}
-
-		for (var j = 0; j < WIDTH; j++) {
-			row += "<td id='" + index + "-" + j + "," + i + "'></td>";
-		}
-
-		if (side == "right") {
-			row += "<th>" + i + "</th>";
-		}
-
-		row += "</tr>";
-
-		Response.Write(row);
-	}
-}
-
-%>
-
 <!doctype html>
 <html>
 <head>
@@ -66,9 +35,7 @@ function printTableBody(index, side) {
 							<th>9</th>
 						</tr>
 					</thead>
-					<tbody>
-						<% printTableBody(0, "left"); %>
-					</tbody>
+					<tbody></tbody>
 				</table>
 				<span class="player-name">Barack O-bot-ma</span>
 				<span id="result-0" class="player-result"></span>
@@ -91,9 +58,7 @@ function printTableBody(index, side) {
 							<th></th>
 						</tr>
 					</thead>
-					<tbody>
-						<% printTableBody(1, "right"); %>
-					</tbody>
+					<tbody></tbody>
 				</table>
 				<span class="player-name">WaterWings</span>
 				<span id="result-1" class="player-result"></span>
