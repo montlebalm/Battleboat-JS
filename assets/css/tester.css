@@ -1,0 +1,201 @@
+/* --------------------------------------------------------------------
+* Layout
+* ------------------------------------------------------------------ */
+
+#wrapper {
+	width: 700px;
+	margin: 0 auto;
+}
+
+#header {
+	margin: 50px 0 25px 0;
+	text-align: center;
+}
+
+	#header h1 span {
+		color: #CCC;
+	}
+
+	.controls {
+		width: 212px;
+		text-align: center;
+		margin: 25px auto 0 auto;
+	}
+
+#content {
+	width: 700px;
+	position: relative;
+}
+
+.player-section {
+	float: left;
+}
+
+	.player-section.left {
+		float: left;
+	}
+
+	.player-section.right {
+		float: right;
+	}
+
+.player-versus {
+	float: left;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	font-size: 20px;
+}
+
+/* --------------------------------------------------------------------
+* Player Names
+* ------------------------------------------------------------------ */
+
+.player-name,
+.player-result {
+	width: 312px;
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+}
+
+.player-name {
+	margin-top: 25px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+.player-result {
+	margin-top: 10px;
+	position: absolute;
+	font-weight: bold;
+}
+
+	.wins {
+		color: #090;
+	}
+
+	.loses {
+		color: #C00;
+	}
+
+/* --------------------------------------------------------------------
+* Game Board
+* ------------------------------------------------------------------ */
+
+.game-board {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+	.game-board td {
+		height: 25px;
+		width: 25px;
+		border: 1px solid #666;
+		font-family: Arial;
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.game-board thead th {
+		padding: 10px 0;
+		border-bottom: 3px solid #000;
+	}
+
+	/* Left */
+
+	.left .game-board tbody th {
+		padding: 0 10px;
+		border-right: 3px solid #000;
+	}
+
+	.left .game-board thead th:first-child {
+		border-bottom: none;
+	}
+
+	.left .game-board td:last-child {
+		border-right: 3px solid #000;
+	}
+
+	.left .game-board tr:last-child td {
+		border-bottom: 3px solid #000;
+	}
+
+	/* Right */
+
+	.right .game-board tbody th {
+		padding: 0 10px;
+		border-left: 3px solid #000;
+	}
+
+	.right .game-board thead th:last-child {
+		border-bottom: none;
+	}
+
+	.right .game-board td:first-child {
+		border-left: 3px solid #000;
+	}
+
+	.right .game-board tr:last-child td {
+		border-bottom: 3px solid #000;
+	}
+
+/* --------------------------------------------------------------------
+* Boats
+* ------------------------------------------------------------------ */
+
+.boat-a { background-color: #00966E; }
+.boat-b { background-color: #00AD7F; }
+.boat-s { background-color: #00E0A5; }
+.boat-p { background-color: #14FFC0; }
+
+.boat-a { background-color: #00D26E; }
+.boat-b { background-color: #97A0E7; }
+.boat-s { background-color: #DAE84F; }
+.boat-p { background-color: #ED9151; }
+
+/* --------------------------------------------------------------------
+* Legend
+* ------------------------------------------------------------------ */
+
+/* --------------------------------------------------------------------
+* Log
+* ------------------------------------------------------------------ */
+
+#log {
+	margin-top: 50px;
+	display: none;
+}
+
+	#log textarea {
+		border: none;
+		background: #111;
+		color: #090;
+		width: 680px;
+		max-width: 680px;
+		height: 250px;
+		padding: 10px;
+		font-family: monospace;
+	}
+
+/* --------------------------------------------------------------------
+* Clearfix
+* ------------------------------------------------------------------ */
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
