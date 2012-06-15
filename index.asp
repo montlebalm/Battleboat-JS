@@ -1,0 +1,123 @@
+<%@ Language = JScript %>
+
+<%
+
+var HEIGHT = 10;
+var WIDTH = 10;
+
+function printTableBody(index, side) {
+	for (var i = 0; i < HEIGHT; i++) {
+		var row = "<tr>";
+
+		if (side == "left") {
+			row += "<th>" + i + "</th>";
+		}
+
+		for (var j = 0; j < WIDTH; j++) {
+			row += "<td id='" + index + "-" + j + "," + i + "'></td>";
+		}
+
+		if (side == "right") {
+			row += "<th>" + i + "</th>";
+		}
+
+		row += "</tr>";
+
+		Response.Write(row);
+	}
+}
+
+%>
+
+<!doctype html>
+<html>
+<head>
+	<title>BattleBoatJS Tester</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/tester.css" />
+</head>
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h1>BattleBoatJS <span>Tester</span></h1>
+			<div class="controls btn-group">
+				<button class="btn" id="btn-init">Place ships</button>
+				<button class="btn disabled" id="btn-next">Next turn</button>
+				<button class="btn disabled" id="btn-play">Play</button>
+			</div>
+		</div>
+		<div id="content" class="clearfix">
+			<div class="player-section left">
+				<table id="board-0" class="game-board">
+					<thead>
+						<tr>
+							<th></th>
+							<th>0</th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+							<th>6</th>
+							<th>7</th>
+							<th>8</th>
+							<th>9</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% printTableBody(0, "left"); %>
+					</tbody>
+				</table>
+				<span class="player-name">Barack O-bot-ma</span>
+				<span id="result-0" class="player-result"></span>
+			</div>
+			<span class="player-versus">vs</span>
+			<div class="player-section right">
+				<table id="board-1" class="game-board">
+					<thead>
+						<tr>
+							<th>0</th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+							<th>6</th>
+							<th>7</th>
+							<th>8</th>
+							<th>9</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% printTableBody(1, "right"); %>
+					</tbody>
+				</table>
+				<span class="player-name">WaterWings</span>
+				<span id="result-1" class="player-result"></span>
+			</div>
+		</div>
+		<div id="log">
+			<textarea></textarea>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Player AI Script -->
+	<script type="text/javascript" src="example_ai.js"></script>
+
+	<!-- Framework Scripts -->
+	<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/BoringBot_class.js"></script>
+	<script type="text/javascript" src="assets/js/Globals.js"></script>
+	<script type="text/javascript" src="assets/js/Display_class.js"></script>
+	<script type="text/javascript" src="assets/js/Game_class.js"></script>
+
+	<!-- Just for testing -->
+	<script type="text/javascript" src="assets/js/Tester.js"></script>
+</body>
+</html>
