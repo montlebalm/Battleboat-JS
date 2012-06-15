@@ -1,29 +1,36 @@
 function Player() {};
 
-Player.prototype.name = "Barack O-bot-ma";
+Player.prototype.name = "WaterWings";
 
+/**
+ * Provide coordinates for placing each of your ships on the game board.
+ *
+ * @param {array} ships A list of ships to be placed
+ * @returns {array} A list containing a placement object for each ship. Each object must implement:
+ * 		- x: x position of the ship's nose
+ *		- y: y position of the ship's nose
+ *		- axis: orientation of the ship's body (x == horizontal, y == vertical)
+ *		- ship: pointer to the ship object you're placing (ships[0])
+ */
 Player.prototype.placeShips = function(ships) {
 	var placements = [];
 
 	while (ships.length) {
-		var x = this.rand(WIDTH),
-			y = this.rand(HEIGHT),
-			size = ships[0].size,
-			axis = (this.rand(2) == 0) ? "x" : "y";
+		var x = this.rand(WIDTH);
+		var y = this.rand(HEIGHT);
+		var size = ships[ships.length - 1].size;
+		var axis = (this.rand(2) == 0) ? "x" : "y";
 
 		// Check that the ship both fits on the board and doesn't overlap another one
 		var fitsOnBoard = this.shipFits(x, y, axis, size);
 		var overlapsOtherShips = this.shipOverlaps(x, y, axis, size, placements);
 
 		if (fitsOnBoard && !overlapsOtherShips) {
-			// Remove the ship from the collection
-			var ship = ships.splice(0, 1);
-
 			placements.push({
 				x: x,
 				y: y,
 				axis: axis,
-				ship: ship[0]
+				ship: ships.pop()
 			});
 		}
 	}
@@ -31,6 +38,14 @@ Player.prototype.placeShips = function(ships) {
 	return placements;
 };
 
+/**
+ * Shoot at an enemy ship.
+ *
+ * @param {array} turns A list of all your previous turns
+ * @returns {object} An object specifying where you're shooting. Each object must implement:
+ * 		- x: x value of shot
+ *		- y: y value of shot
+ */
 Player.prototype.takeTurn = function(turns) {
 	var new_x = 0;
 	var new_y = 0;
@@ -53,6 +68,8 @@ Player.prototype.takeTurn = function(turns) {
 	};
 };
 
+// ----------------------------------------------------------------------------
+// Optional helper methods
 // ----------------------------------------------------------------------------
 
 Player.prototype.rand = function(boundry) {
