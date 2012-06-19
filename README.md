@@ -146,11 +146,6 @@ Each player must defend place and ultimately destroy 5 ships. The types of ships
 		<td>B</td>
 	</tr>
 	<tr>
-		<td>Destroyer</td>
-		<td>3</td>
-		<td>D</td>
-	</tr>
-	<tr>
 		<td>Submarine</td>
 		<td>3</td>
 		<td>S</td>
